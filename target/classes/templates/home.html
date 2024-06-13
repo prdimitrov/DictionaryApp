@@ -19,7 +19,7 @@
                         <span th:text="|Example: ${w.example}|">Example: {example}</span>
                         <br>
                         <span th:text="|Added by: ${w.addedBy.username} on ${w.inputDate}|">Added by: {username} on {inputDate}</span>
-                        <a class="ml-3 text-danger" href="/">Remove</a>
+                        <a class="ml-3 text-danger" th:href="@{/home/remove/{id}(id=*{id})}">Remove</a>
                     </div>
             </div>
 
@@ -32,7 +32,7 @@
                         <span th:text="|Example: ${w.example}|">Example: {example}</span>
                         <br>
                         <span th:text="|Added by: ${w.addedBy.username} on ${w.inputDate}|">Added by: {username} on {inputDate}</span>
-                        <a class="ml-3 text-danger" href="/">Remove</a>
+                        <a class="ml-3 text-danger" th:href="@{/home/remove/{id}(id=*{id})}">Remove</a>
                     </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                         <span th:text="|Example: ${w.example}|">Example: {example}</span>
                         <br>
                         <span th:text="|Added by: ${w.addedBy.username} on ${w.inputDate}|">Added by: {username} on {inputDate}</span>
-                        <a class="ml-3 text-danger" href="/">Remove</a>
+                        <a class="ml-3 text-danger" th:href="@{/home/remove/{id}(id=*{id})}">Remove</a>
                     </div>
             </div>
 
@@ -60,11 +60,11 @@
                         <span th:text="|Example: ${w.example}|">Example: {example}</span>
                         <br>
                         <span th:text="|Added by: ${w.addedBy.username} on ${w.inputDate}|">Added by: {username} on {inputDate}</span>
-                        <a class="ml-3 text-danger" href="/">Remove</a>
+                        <a class="ml-3 text-danger" th:href="@{/home/remove/{id}(id=*{id})}">Remove</a>
                     </div>
             </div>
         </div>
-        <a href="/home/remove-all" class="btn btn-danger">Remove all {allWordsCount} words</a>
+        <a th:href="@{/home/remove/remove-all}" class="btn btn-danger" th:text="|Remove all ${allWordsCount} words|">Remove all {allWordsCount} words</a>
     </div>
 </main>
 <footer th:replace="~{fragments/commons::footer}"></footer>

@@ -42,9 +42,10 @@ public class WordController {
         if (!currentUser.isLoggedIn()) {
             return "redirect:/";
         }
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("wordModel", wordModel);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.wordModel", wordModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.wordModel", bindingResult);
             //redirect to words/add, if there are errors!
             return "redirect:/words/add";
         }

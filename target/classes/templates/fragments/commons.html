@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg bg-nav rounded " >
         <a class="nav-link my-text-color active h5 " href="/">Dictionary App</a>
         <th:block th:if="${@currentUser.isLoggedIn()}">
-        <a class="nav-link my-text-color active h5  " href="/">Add Word</a>
+        <a class="nav-link my-text-color active h5  " th:href="@{/words/add}">Add Word</a>
         </th:block>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav row">

@@ -22,7 +22,7 @@ public class LanguageService {
             Arrays.stream(LanguageName.values())
                     .forEach(languageName -> {
                         Language language = new Language();
-                        language.setLanguageName(languageName);
+                        language.setName(languageName);
                         switch (languageName) {
                             case FRENCH:
                                 language.setDescription("A Romance language spoken worldwide, known for its elegance and cultural richness. It's the official language of France and numerous nations, famed for its cuisine, art, and literature.");
@@ -44,6 +44,6 @@ public class LanguageService {
 
 
     public Language getByLanguageName(LanguageName languageName) {
-        return languageRepository.findByLanguageName(languageName);
+        return languageRepository.findByName(languageName);
     }
 }

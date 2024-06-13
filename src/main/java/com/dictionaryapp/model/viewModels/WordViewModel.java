@@ -7,6 +7,8 @@ import java.time.LocalDate;
 
 public class WordViewModel {
 
+    private Long id;
+
     private String term;
 
     private String translation;
@@ -68,5 +70,13 @@ public class WordViewModel {
 
     public void setAddedBy(User addedBy) {
         this.addedBy = addedBy;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

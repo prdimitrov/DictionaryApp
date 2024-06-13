@@ -8,57 +8,62 @@
     <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add word</span></h1>
     <hr class="hr-3 w-25 bg-white"/>
 
-    <form class="mx-auto w-25 bg-blur rounded" th:method="post"
-          th:action="@{/words/add}"
-          th:object="${wordModel}">
+    <form class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/words/add}" th:object="${wordModel}">
 
         <div class="form-group">
             <div class="label-holder text-white textCol d-flex justify-content-center">
                 <label for="term" class="h4 mb-2">Term</label>
             </div>
             <textarea type="text" class="form-control" id="term" name="term"
-                      th:value="*{term}"
-                      th:errorclass="is-invalid"></textarea>
-            <small class="text-danger invalid-feedback" th:errors="*{term}">Term error message</small>
+                      th:text="*{term}"
+                      th:errorclass="'is-invalid bg-danger'"></textarea>
+            <small class="text-danger invalid-feedback" th:errors="*{term}">The term length must be between 2 and 40 characters!</small>
         </div>
 
         <div class="form-group">
             <div class="label-holder text-white textCol d-flex justify-content-center">
                 <label for="translation" class="h4 mb-2">Translation</label>
             </div>
-            <textarea type="text" class="form-control" id="translation" name="translation"></textarea>
-            <small class="text-danger">Translation error message</small>
+            <textarea type="text" class="form-control" id="translation" name="translation"
+                      th:text="*{translation}"
+                      th:errorclass="'is-invalid bg-danger'"></textarea>
+            <small class="text-danger invalid-feedback" th:errors="*{translation}">The translation length must be between 2 and 80 characters!</small>
         </div>
 
         <div class="form-group">
             <div class="label-holder text-white textCol d-flex justify-content-center">
                 <label for="example" class="h4 mb-2">Example</label>
             </div>
-            <textarea type="text" class="form-control" id="example" name="example"></textarea>
-            <small class="text-danger">Example error message</small>
+            <textarea type="text" class="form-control" id="example" name="example"
+                      th:text="*{example}"
+                      th:errorclass="'is-invalid bg-danger'"></textarea>
+            <small class="text-danger invalid-feedback">The example length must be between 2 and 200 characters!</small>
         </div>
 
         <div class="form-group">
             <div class="label-holder text-white textCol d-flex justify-content-center">
                 <label for="inputDate" class="h4 mb-2">Set input date</label>
             </div>
-            <input type="date" class="form-control" id="inputDate" name="inputDate"/>
-            <small class="text-danger">Input Date error message</small>
+            <input type="date" class="form-control" id="inputDate" name="inputDate"
+                   th:value="*{inputDate}"
+                   th:errorclass="'is-invalid bg-danger'"/>
+            <small class="text-danger invalid-feedback">The input date must be in the past or present!</small>
         </div>
 
         <div class="form-group">
             <div class="text-white label-holder d-flex justify-content-center">
                 <label for="language" class="h4 mb-2">Language</label>
             </div>
-            <select class="browser-default custom-select" id="language" name="language">
+            <select class="browser-default custom-select" id="language" name="language"
+                    th:field="*{language}"
+            th:errorclass="'is-invalid bg-danger'">
                 <option value="">Select language</option>
-                <option value="GERMAN">German</option>
-                <option value="FRENCH">French</option>
-                <option value="SPANISH">Spanish</option>
-                <option value="ITALIAN">Italian</option>
+                <option th:each="w : ${T(com.dictionaryapp.model.enums.LanguageName).values()}"
+                        th:text="${w.name()}"
+                        th:value="${w.name()}"></option>
             </select>
 
-            <small class="text-danger">Language error message</small>
+            <small class="text-danger invalid-feedback">You must select a language.</small>
         </div>
 
         <div class="button-holder d-flex justify-content-center">

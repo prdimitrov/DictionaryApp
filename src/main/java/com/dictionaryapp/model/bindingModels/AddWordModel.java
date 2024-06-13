@@ -27,7 +27,7 @@ public class AddWordModel {
     private LocalDate inputDate;
 
     @NotNull(message = "You must select a language.")
-    private LanguageName languageName;
+    private LanguageName language;
 
     public AddWordModel() {
     }
@@ -64,11 +64,11 @@ public class AddWordModel {
         this.inputDate = inputDate;
     }
 
-    public LanguageName getLanguageName() {
-        return languageName;
+    public LanguageName getLanguage() {
+        return language;
     }
 
-    public void setLanguageName(LanguageName languageName) {
-        this.languageName = languageName;
+    public void setLanguage(LanguageName language) {
+        this.language = language;
     }
 }
