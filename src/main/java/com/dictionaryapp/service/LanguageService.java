@@ -43,5 +43,7 @@ public class LanguageService {
     }
 
 
-
+    public Language getByLanguageName(LanguageName languageName) {
+        return languageRepository.findByLanguageName(languageName);
+    }
 }
