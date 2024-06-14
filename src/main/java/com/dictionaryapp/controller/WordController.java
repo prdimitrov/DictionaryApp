@@ -38,7 +38,7 @@ public class WordController {
     public String addWord(@Valid AddWordModel wordModel,
                           BindingResult bindingResult,
                           RedirectAttributes redirectAttributes) {
-        //If use is not logged in.
+        //If user is not logged in.
         if (!currentUser.isLoggedIn()) {
             return "redirect:/";
         }
