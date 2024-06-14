@@ -75,7 +75,7 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("home/remove/{id}")
+    @GetMapping("/home/remove/{id}")
     public String removeWord(@PathVariable Long id) {
         if (!currentUser.isLoggedIn()) {
             //If user is not logged in.
